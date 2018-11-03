@@ -4,8 +4,8 @@
 #define NES
 //#define SNES
 //Connector (Connect also GND and 5V):  CUP, OUT0,     D1
-const uint8_t inputPinsPort1[] =       {  2,     3,     4 };
-const uint8_t inputPinsPort2[] =       {  5,     7,     6 };
+const uint8_t inputPinsPort1[] =       {  2,     3,     4 }; //change these as necessary
+const uint8_t inputPinsPort2[] =       {  5,     7,     6 }; //change these as necessary
 
 uint8_t lastStatusPort1[20]; //4 directions + 16 buttons
 uint8_t newStatusPort1[20];
