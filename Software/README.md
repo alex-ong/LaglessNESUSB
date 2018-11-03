@@ -1,7 +1,7 @@
 # LaglessNesUSB
 ## What is this?
 
-*NOTE: That this code is a modified/simplified version of the original from mcgurk. (https://github.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter)*
+*NOTE: That this code is a modified/simplified version of the original from [mcgurk](https://github.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter). It uses a copy of the Joystick library from MHeironimus [Joystick2](https://github.com/MHeironimus/ArduinoJoystickLibrary/tree/version-1.0/Joystick2)*
 
 Very cheap and quite easy way to connect many non-USB joysticks and gamepads or DIY arcade cabinet controller to almost any machine with USB-port and HID-support. Arduino board with ATmega32u4 chip with help of Joystick-library does all the USB-work.
 Tested with Windows and Linux desktop computers and ARM based computers like Raspberry Pi and Orange Pi.
@@ -20,36 +20,33 @@ If you use Linux and want to get more than 1 controller with one Arduino, check 
 - Get ATmega32u4 Arduino board
 - Connect joystick or gamepad to Arduino (in most situations soldering is required)
 - Install Arduino [IDE](https://www.arduino.cc/en/Main/Software)
-- Install Joystick [library](https://github.com/MHeironimus/ArduinoJoystickLibrary/tree/version-1.0). Note that we are using a branch for *version 1.0*, not the latest.
+- Install Joystick [library](https://github.com/alex-ong/LaglessNESUSB/Software/Joystick2).
 - Open sourcecode to Arduino IDE and select controller by commenting and uncommenting and edit pin-numbers (if needed)
-- Upload
+- Build, Upload
 - Done
 
 ## Long version
 ### What you need
 
 #### Arduino board
-Starting point is ATmega32u4 based Arduino board. There is two versions of ATmega32u4, IO-logic with 5V or 3.3V. Many controllers (like basic Atari-controller) doesn't include any logic, so 5V and 3.3V versions are fine. Most of controllers with some logic needs 5V (NES, SNES, Genesis) and some rare ones needs 3.3V (N64/Gamecube) (5V is 16MHz and 3.3V 8MHz, so timings are different and 16MHz code doesn't work for N64/Gamecube with 3.3V version). Make sure that Arduino includes USB-port. There are some versions which doesn't include USB-port and then you have to add USB-connector for it. Arduino Leonardo includes ATmega32u4, but cheapest and smallest ones are named Pro Micro. Arduino Pro Micro and ATmega32u4 are good words to use when searching from Ebay etc. Cheapest starts from about $4.
+Starting point is ATmega32u4 based Arduino board. There is two versions of ATmega32u4, IO-logic with 5V or 3.3V. We need 5V. Arduino Leonardo includes ATmega32u4, but cheapest and smallest ones are named Pro Micro. Arduino Pro Micro and ATmega32u4 are good words to use when searching from Ebay etc. Cheapest starts from about $4.
 
 Example of Arduino Pro Micro:
 
-![Arduino Pro Micro](https://github.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter/raw/master/Images/Arduino_ProMicro.jpg)
+![Arduino Pro Micro](https://github.com/alex-ong/LaglessNESUSB/raw/master/software/Images/Arduino_ProMicro.jpg)
 
 
 #### Computer with Arduino IDE
 Arduino IDE works with Windows, OS X and Linux and ARM (beta). If you use small card computer like Rasperry Pi or Orange Pi, you can program adapter even with them (tested with Orange Pi PC and RetrOrangePi 2.0). That way you don't even have to unplug adapter from your emulator/game-platform if you want reprogram adapter.
 
 #### Joystick library for Arduino IDE
-https://github.com/MHeironimus/ArduinoJoystickLibrary
+I've made a copy from the original source, it is in Software/Joystick2. It is a single .cpp file and .h file. It sets up a 1000hz USB Joystick device. To install the joystick library, copy the folder into your arduino folder.
 
 #### Joystick(s) or gamepad(s) and way to connect them to Arduino
-Some joystick/gamepads uses their own connectors and original connectors can be very pricey. Sometimes you can find extension cord cheaper than plain connector and you can take cable and plug from that.
-You can use any IO-pins, but try to avoid pins 0 and 1. They are serial port TX and RX pins and even though they are not used right now, they are handy for debugging and other uses.
-Example in [Hardware](https://github.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter/tree/master/Hardware) folder.
+Get some female ports off ali-express, or ebay.
 
-Example of NES-controller wiring:
-
-![NES wiring](https://github.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter/raw/master/Hardware/nes.png)
+NES-controller wiring:
+![NES wiring](https://github.com/alex-ong/LaglessNESUSB/raw/master/software/Images/nes.png)
 
 ### Setup
 
@@ -67,21 +64,18 @@ Example of NES-controller wiring:
 
   You can now test your setup. One basic example is "blink". With this board, it doesn't blink, because there is no led in pin 13. Nevertheless you can use it as a test that your IDE and Arduino works. Select `File -> Examples -> 01.Basics -> Blink` and press `Upload` (Arrow to right -symbol top of code windows). If you get no errors, you are good to go.
 
-- Install joystick library (needed only with some controllers - check list at top of this page)
+- Install joystick library (needed for this controller)
 
-  Go to https://github.com/MHeironimus/ArduinoJoystickLibrary and press `Clone or download -> Download ZIP`.
-  Extract Joystick2 folder from zip to `%HOMEPATH%\Documents\Arduino\libraries` (Windows) or `~/Arduino/libraries` (Linux).
+  Copy the Joystick2 folder from Software\Joystick2
+  to `%HOMEPATH%\Documents\Arduino\libraries` (Windows) or `~/Arduino/libraries` (Linux). If you have a non-installer verison of Arduino, look for the libraries folder.
   
   After extraction check that you have files `%HOMEPATH%\Documents\Arduino\libraries\Joystick2\Joystick2.h and Joystick2.cpp` or `~/Arduino/libraries/Joystick2/Joystick2.h and Joystick2.cpp`.
   Close and start Arduino IDE again so it searches and finds library.
-
-  Playstation analog controller `RetroJoystickAdapter_PlaystationAnalog.ino` needs `Joystick\Joystick.h` and `Joystick\Joystick.cpp`.
   
-- Load `RetroJoystickAdapter.ino` to Arduino IDE (check right filename from list at top of this page)
+- Load `RetroJoystickAdapter.ino` to Arduino IDE
+  If you chose differnt pin numbers to solder to, change them at the top of the file.
 
-  Select controller by commenting and uncommenting and edit pin-numbers (if needed).
-
-- Press Upload
+- Press Verify / Upload
 
 - If you got the message "all done" and no errors, your done here.
 
@@ -125,9 +119,6 @@ bootm 0x42000000
 - (you need to get mkimage from somewhere (e.g. use Armbian), because it is not included in Lakka)
 - Reboot
 - Check with `cat /proc/cmdline`
-
-## Tutorial
-There is simple tutorial in [Tutorial](https://github.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter/tree/master/Tutorial) folder. We tried to make it as clear as possible, so even if you are not familiar with coding, you may can do modifications to it (example add a button).
 
 ## Misc
 
@@ -177,100 +168,6 @@ If you add new board to Arduino IDE, it survives from Arduino IDE updates. Copy 
 Restart Arduino IDE and select Tools -> Board -> Arduino Pro Micro Retroadapter.
 
 It changes VID to 0x8282 and PID to 0x3201 (Keio Retro Adapter).
-
-### Arduino Uno R3
-Arduino UNO R3 includes ATmega16u2 (along with ATmega328p) and it can be used too, but it needs some extra work (code doesn't work without modifications with UNO):
-https://github.com/NicoHood/HoodLoader2
-
-### Software USB
-USB-device without ATmega16u2/32u4. Needs 3 resistors and 2 zener diodes.
-
-https://www.obdev.at/products/vusb/index.html
-
-### PS/2
-PS/2-keyboard can be connected directly to Arduino and there is library for that.
-
-http://playground.arduino.cc/Main/PS2Keyboard
-
-### USB host
-You can also use Arduino vice versa. You cannot read USB with normal Arduino, but there is shields to make Arduino as USB host. With that you can connect modern USB-joysticks and gamepads to old consoles.
-
-https://github.com/felis/USB_Host_Shield_2.0
-
-### Level shifting and voltage levels
-
-#### Converter
-Very handy level converter with 3.3V AMS1117 regulator. Search from Ebay with `Logic Level Converter Module AMS1117 DC 5V to 3.3V`
-
-![Level converter with AMS1117](https://raw.githubusercontent.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter/master/Images/Levelconverter_with_AMS1117.jpg)
-
-#### Playstation, 3.3V, 3.7V or 5V?
-There is contradictory data about Playstation controller voltages. I have one commercial adapter and it's 5V. I haven't measured official Playstation, but it is probably 3.3V.
-
-#### Wii extension controllers
-Wii extensions are 3.3V, but I have used Wii Nunchuck and Classic Controller with 5V (VCC and signals) without problems.
-
-### Konami code
-You can also enable or disable Konami-code-shortcut with some controllers. For now it works only with Genesis 6-button controller (X+Y+Z+UP (or DOWN)), SNES-controller (X+Y+R1+UP (or DOWN)) and PSX-controller (rectangle+circle+triangle+UP (or DOWN)). "UP"-version is normal and "DOWN"-version swaps A and B. Some games demands that not other buttons are pressed before code and that's why only last pressed button can be button which have some function in emulator.
-
-https://en.wikipedia.org/wiki/Konami_Code
-https://en.wikipedia.org/wiki/List_of_Konami_code_games
-
-### Other ideas
-Of course Arduino can be used many other ways. Add a PIR motion detector module from Ebay (under $2) and your computer wakes up from sleep when you walk to room. Just read PIR-sensor data pin and if it is 1, send some keyboard button (which normally does nothing) to computer so it wakes up. Or make info-board to your kitchen or hallway wall from old Android tablet and it turns on backlight only when someone goes to kitchen.
-
-## Links
-
-#### Arduino
-http://playground.arduino.cc/Main/InterfacingWithHardware
-
-#### NES
-http://www.mit.edu/~tarvizo/nes-controller.html
-
-#### SNES
-http://wiki.superfamicom.org/snes/show/Schematics,+Ports,+and+Pinouts
-
-https://github.com/burks10/Arduino-SNES-Controller
-
-#### Sega Megadrive / Genesis
-https://www.cs.cmu.edu/~chuck/infopg/segasix.txt
-
-https://jonthysell.com/2014/07/26/reading-sega-genesis-controllers-with-arduino/
-
-#### Playstation
-
-http://www.gamesx.com/controldata/psxcont/psxcont.htm
-
-http://playground.arduino.cc/Main/PSXLibrary
-
-http://problemkaputt.de/psx-spx.htm#controllersandmemorycards
-
-#### Playstation Dualshock:
-
-https://gist.github.com/scanlime/5042071
-
-#### Nintendo 64 / Gamecube:
-
-https://github.com/NicoHood/Nintendo
-
-https://github.com/brownan/Gamecube-N64-Controller
-
-#### Wii Classic Controller:
-
-https://github.com/robotgeek/WiiClassy
-
-http://wiibrew.org/wiki/Wiimote/Extension_Controllers/Classic_Controller
-
-#### Gamecube / N64
-
-http://www.int03.co.uk/crema/hardware/gamecube/gc-control.htm
-
-https://github.com/NicoHood/Nintendo/wiki/Gamecube
-
-#### PC Engine/Turbografx
-(I don't have this controller, so it is not implemented, but it should be implemented very easily)
-
-https://emu-docs.org/PC%20Engine/tg16cont.html
 
 #### How to reset Arduino (in case of emergency)
 
