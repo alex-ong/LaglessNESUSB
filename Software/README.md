@@ -1,10 +1,9 @@
 # LaglessNesUSB
-## What is this?
-
 *This code is a modified/simplified version of the original from [mcgurk](https://github.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter).*
 
 *It uses a copy of the Joystick library from MHeironimus [Joystick2](https://github.com/MHeironimus/ArduinoJoystickLibrary/tree/version-1.0/Joystick2)*
 
+## What is this?
 Very cheap and quite easy way to connect many non-USB joysticks and gamepads or DIY arcade cabinet controller to almost any machine with USB-port and HID-support. Arduino board with ATmega32u4 chip with help of Joystick-library does all the USB-work.
 Tested with Windows and Linux desktop computers and ARM based computers like Raspberry Pi and Orange Pi.
 
@@ -13,8 +12,7 @@ Tested with Windows and Linux desktop computers and ARM based computers like Ras
 - Nintendo Entertainment System controllers (NES)
 
 ### Polling rate / latency
-- The Software polls the controllers at over 10000hz, and as soon as a difference is detected, sends this to the OS. The device is setup as a 1000hz usb joystick,
-so maximal latency is 1ms. This is all handled by the Joystick2 library.
+- The Software polls the controllers at over 10000hz, and as soon as a difference is detected, sends this to the OS. The device is setup as a 1000hz usb joystick, so maximal latency is 1ms. This is all handled by the Joystick2 library.
 
 If you use Linux and want to get more than 1 controller with one Arduino, check "Linux and more than one controller with one Arduino"-topic in this same page.
 
