@@ -4,6 +4,8 @@ This repository contains two main parts - a hardware folder which includes all t
 make a two player adapter enclosure, and a software folder, arduino code required to create
 a lagless adapter.
 
+![heroimage](https://github.com/alex-ong/LaglessNESUSB/raw/master/Hardware/images/case.png)
+
 Why is this lagless?
 ===
 The software leverages [MHeironimus's Joystick2](https://github.com/MHeironimus/ArduinoJoystickLibrary/tree/version-1.0/Joystick2) library, which creates a 1000hz usb device.
