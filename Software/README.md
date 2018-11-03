@@ -1,7 +1,7 @@
 # LaglessNesUSB
 ## What is this?
 
-*This code is a modified/simplified version of the original from [mcgurk](https://github.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter). *
+*This code is a modified/simplified version of the original from [mcgurk](https://github.com/mcgurk/Arduino-USB-HID-RetroJoystickAdapter).*
 
 *It uses a copy of the Joystick library from MHeironimus [Joystick2](https://github.com/MHeironimus/ArduinoJoystickLibrary/tree/version-1.0/Joystick2)*
 
