@@ -33,7 +33,7 @@ Starting point is ATmega32u4 based Arduino board. There is two versions of ATmeg
 
 Example of Arduino Pro Micro:
 
-![Arduino Pro Micro](https://github.com/alex-ong/LaglessNESUSB/raw/master/software/Images/Arduino_ProMicro.jpg)
+![Arduino Pro Micro](https://github.com/alex-ong/LaglessNESUSB/raw/master/Software/Images/Arduino_ProMicro.jpg)
 
 
 #### Computer with Arduino IDE
@@ -46,7 +46,7 @@ I've made a copy from the original source, it is in Software/Joystick2. It is a 
 Get some female ports off ali-express, or ebay.
 
 NES-controller wiring:
-![NES wiring](https://github.com/alex-ong/LaglessNESUSB/raw/master/software/Images/nes.png)
+![NES wiring](https://github.com/alex-ong/LaglessNESUSB/raw/master/Software/Images/nes.png)
 
 ### Setup
 
