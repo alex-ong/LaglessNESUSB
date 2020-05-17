@@ -40,3 +40,22 @@ You can use [this tool](https://github.com/alex-ong/UnityInputDelayTester/releas
 The idea is to strum two keys as close together as possible, without being simultaneous. It will figure out
 the minimum time between key messages. Note that some keyboards are advertised as 1000hz, but wrap key events into 5ms polling rates.
 This means if you press two keys 1ms apart, they are reported in the same 5ms block with the same timestamp.
+
+
+Bill of Materials
+===
+| Electronics                | Cost  | Link                                             |
+|----------------------------|-------|--------------------------------------------------|
+| Arduino pro micro 5v 16mhz | $3.00 | [link](https://www.aliexpress.com/item/1348800135.html)  |
+| Female Nes port            | $2.60 x 2 | [link](https://www.aliexpress.com/i/32827585164.html)    |
+| Cabling (Ethernet)         | $0.00 |                                                  |
+| Micro usb cable            | $1.00 | [link](https://www.aliexpress.com/item/32996600477.html) |
+
+
+| Enclosure         | Cost | Link                                             |
+|-------------------|------|--------------------------------------------------|
+| Laser cut plywood | $3.0 | Todo: upload files as 1.5mm and 3mm              |
+| Screws            | $2.0 | Todo                                             |
+| Standoffs         | $2.0 | Todo                                             |
+| Microusb port     | $1.5 | [link](https://www.aliexpress.com/item/32840345016.html) |
+
