@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "promicro")(type "Legacy")(uri "${KIPRJMOD}/ProMicroKiCad/promicro_library/promicro.lib")(options "")(descr ""))
+  (lib (name "nescontroller")(type "KiCad")(uri "${KIPRJMOD}/NesControllerPort/nescontroller.kicad_sym")(options "")(descr ""))
+)
