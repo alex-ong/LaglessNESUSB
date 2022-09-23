@@ -3,9 +3,13 @@
 
 #define NES
 //#define SNES
-//Connector (Connect also GND and 5V):  CUP, OUT0,     D1
+//Connector (Connect also GND and 5V):  CLOCK, LATCH,     DATA
 const uint8_t inputPinsPort1[] =       {  2,     3,     4 }; //change these as necessary
 const uint8_t inputPinsPort2[] =       {  5,     7,     6 }; //change these as necessary
+
+//Settings for PCB in hardware folder:    CLOCK  LATCH   DATA
+//const uint8_t inputPinsPort1[] =       {  4,     3,     2 }; //change these as necessary
+//const uint8_t inputPinsPort2[] =       {  7,     6,     5 }; //change these as necessary
 
 uint8_t lastStatusPort1[20]; //4 directions + 16 buttons
 uint8_t newStatusPort1[20];
