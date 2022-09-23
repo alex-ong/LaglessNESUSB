@@ -4,7 +4,7 @@ This repository contains two main parts - a hardware folder which includes all t
 make a two player adapter enclosure, and a software folder, arduino code required to create
 a lagless adapter.
 
-![heroimage](https://github.com/alex-ong/LaglessNESUSB/raw/master/Hardware/images/case.png)
+![heroimage](https://github.com/alex-ong/LaglessNESUSB/raw/master/Hardware/NO_PCB/images/case.png)
 
 Why is this lagless?
 ===
