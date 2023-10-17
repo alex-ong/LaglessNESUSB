@@ -14,7 +14,7 @@ Total input delay is <1000hz. Pressing two keys at almost the same time will rep
 2-3 milliseconds apart, in the correct order. This is more accurate than lower usb polling combos,
 where pressing two buttons close together will wrap them as sent simultaneously.
 
- * [Hardware](https://github.com/alex-ong/LaglessNESUSB/tree/master/Hardware)
+ * [Hardware](https://github.com/alex-ong/LaglessNESUSB/tree/master/Hardware/NO_PCB)
 
  * [Software](https://github.com/alex-ong/LaglessNESUSB/tree/master/Software)
 
